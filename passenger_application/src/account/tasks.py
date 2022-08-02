@@ -22,13 +22,15 @@ def send_sms(
 ):
     try:
         api = KavenegarAPI(settings.APIKEY)
+        print(api)
         params = {
-            'sender': 'taxi rider',
+            'sender':'Hamed',
             'receptor': f'{phone_number}',
             'message': f'سلام کاربر گرامی کد {code_type}شما:{code}'
         }
         response = api.sms_send(params)
-        return response.status
+        print("yes")
+        return response
     except APIException as e:
         print(e)
     except HTTPException as e:
